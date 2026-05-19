@@ -1,0 +1,15 @@
+{
+  "name": "ls_oracle_pos_shir",
+  "properties": {
+    "description": "Template linked service for on-prem Oracle POS connectivity using Self-hosted Integration Runtime.",
+    "type": "Oracle",
+    "connectVia": {
+      "referenceName": "shir-onprem-retail-pos",
+      "type": "IntegrationRuntimeReference"
+    },
+    "typeProperties": {
+      "connectionString": "host=<oracle-host>;port=1521;sid=<sid>;user id=<user>",
+      "encryptedCredential": "<store-in-key-vault-or-adf-secure-string>"
+    }
+  }
+}

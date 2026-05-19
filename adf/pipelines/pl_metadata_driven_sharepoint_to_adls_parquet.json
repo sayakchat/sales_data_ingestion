@@ -1,0 +1,65 @@
+{
+  "name": "pl_metadata_driven_sharepoint_to_adls_parquet",
+  "properties": {
+    "description": "Metadata-driven SharePoint Excel/CSV ingestion. Reads control rows, resolves app credentials from Key Vault, removes spaces from SharePoint folder names, and writes curated parquet to ADLS for Databricks.",
+    "parameters": {
+      "RunGroup": { "type": "String", "defaultValue": "masterdata" },
+      "ControlTable": { "type": "String", "defaultValue": "dbo.SharePointIngestionControl" }
+    },
+    "activities": [
+      {
+        "name": "Lookup active SharePoint files",
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "AzureSqlSource",
+            "sqlReaderQuery": "SELECT * FROM dbo.SharePointIngestionControl WHERE is_active = 1"
+          },
+          "dataset": { "referenceName": "ds_sql_control_table", "type": "DatasetReference" },
+          "firstRowOnly": false
+        }
+      },
+      {
+        "name": "For each SharePoint file",
+        "type": "ForEach",
+        "dependsOn": [{ "activity": "Lookup active SharePoint files", "dependencyConditions": ["Succeeded"] }],
+        "typeProperties": {
+          "items": { "value": "@activity('Lookup active SharePoint files').output.value", "type": "Expression" },
+          "isSequential": false,
+          "batchCount": 8,
+          "activities": [
+            {
+              "name": "Copy SharePoint file to ADLS parquet",
+              "type": "Copy",
+              "inputs": [{
+                "referenceName": "ds_sharepoint_file_parameterised",
+                "type": "DatasetReference",
+                "parameters": {
+                  "siteUrl": { "value": "@item().sharepoint_site_url", "type": "Expression" },
+                  "folderPath": { "value": "@item().sharepoint_folder_path", "type": "Expression" },
+                  "fileName": { "value": "@item().sharepoint_file_name", "type": "Expression" },
+                  "worksheetName": { "value": "@item().worksheet_name", "type": "Expression" }
+                }
+              }],
+              "outputs": [{
+                "referenceName": "ds_adls_parquet_parameterised",
+                "type": "DatasetReference",
+                "parameters": {
+                  "targetFolder": {
+                    "value": "@concat(item().target_base_folder, '/', replace(toLower(item().sharepoint_folder_path), ' ', ''), '/', item().entity_name)",
+                    "type": "Expression"
+                  },
+                  "targetFileName": { "value": "@concat(item().entity_name, '_', formatDateTime(utcNow(), 'yyyyMMddHHmmss'), '.parquet')", "type": "Expression" }
+                }
+              }],
+              "typeProperties": {
+                "source": { "type": "DelimitedTextSource", "storeSettings": { "type": "HttpReadSettings" } },
+                "sink": { "type": "ParquetSink", "storeSettings": { "type": "AzureBlobFSWriteSettings" } }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

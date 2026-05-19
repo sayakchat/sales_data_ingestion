@@ -1,0 +1,11 @@
+# Optional SQL warehouse definition for analytics consumers.
+# In a real enterprise environment, this would be sized and governed through platform standards.
+
+resources:
+  warehouses:
+    retail_analytics_warehouse:
+      name: ${bundle.target}-retail-analytics-wh
+      cluster_size: 2X-Small
+      min_num_clusters: 1
+      max_num_clusters: 2
+      auto_stop_mins: 10

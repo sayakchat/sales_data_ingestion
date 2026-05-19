@@ -1,0 +1,77 @@
+country_code,location_id,location_name,unit_id,unit_name,currency_code
+GB,LOC001,GB Airport Terminal 1,LOC001-U01,Express Kiosk,GBP
+GB,LOC001,GB Airport Terminal 2,LOC001-U02,Bakery,GBP
+FR,LOC002,FR Airport Terminal 1,LOC002-U01,Express Kiosk,EUR
+FR,LOC002,FR Airport Terminal 2,LOC002-U02,Coffee Bar,USD
+DE,LOC003,DE Airport Terminal 1,LOC003-U01,Express Kiosk,GBP
+DE,LOC003,DE Airport Terminal 2,LOC003-U02,Bakery,USD
+ES,LOC004,ES Airport Terminal 1,LOC004-U01,Coffee Bar,GBP
+ES,LOC004,ES Airport Terminal 2,LOC004-U02,Coffee Bar,EUR
+IT,LOC005,IT Airport Terminal 1,LOC005-U01,Food Hall,USD
+IT,LOC005,IT Airport Terminal 2,LOC005-U02,Express Kiosk,EUR
+NL,LOC006,NL Airport Terminal 1,LOC006-U01,Food Hall,USD
+NL,LOC006,NL Airport Terminal 2,LOC006-U02,Food Hall,EUR
+BE,LOC007,BE Airport Terminal 1,LOC007-U01,Food Hall,USD
+BE,LOC007,BE Airport Terminal 2,LOC007-U02,Bakery,USD
+CH,LOC008,CH Airport Terminal 1,LOC008-U01,Express Kiosk,USD
+CH,LOC008,CH Airport Terminal 2,LOC008-U02,Food Hall,GBP
+AT,LOC009,AT Airport Terminal 1,LOC009-U01,Express Kiosk,USD
+AT,LOC009,AT Airport Terminal 2,LOC009-U02,Coffee Bar,USD
+SE,LOC010,SE Airport Terminal 1,LOC010-U01,Express Kiosk,EUR
+SE,LOC010,SE Airport Terminal 2,LOC010-U02,Bakery,GBP
+NO,LOC011,NO Airport Terminal 1,LOC011-U01,Bakery,GBP
+NO,LOC011,NO Airport Terminal 2,LOC011-U02,Express Kiosk,USD
+DK,LOC012,DK Airport Terminal 1,LOC012-U01,Express Kiosk,GBP
+DK,LOC012,DK Airport Terminal 2,LOC012-U02,Express Kiosk,EUR
+FI,LOC013,FI Airport Terminal 1,LOC013-U01,Bakery,GBP
+FI,LOC013,FI Airport Terminal 2,LOC013-U02,Coffee Bar,GBP
+IE,LOC014,IE Airport Terminal 1,LOC014-U01,Bakery,USD
+IE,LOC014,IE Airport Terminal 2,LOC014-U02,Bakery,GBP
+PT,LOC015,PT Airport Terminal 1,LOC015-U01,Express Kiosk,USD
+PT,LOC015,PT Airport Terminal 2,LOC015-U02,Food Hall,USD
+PL,LOC016,PL Airport Terminal 1,LOC016-U01,Express Kiosk,GBP
+PL,LOC016,PL Airport Terminal 2,LOC016-U02,Food Hall,GBP
+CZ,LOC017,CZ Airport Terminal 1,LOC017-U01,Food Hall,USD
+CZ,LOC017,CZ Airport Terminal 2,LOC017-U02,Express Kiosk,EUR
+HU,LOC018,HU Airport Terminal 1,LOC018-U01,Bakery,GBP
+HU,LOC018,HU Airport Terminal 2,LOC018-U02,Coffee Bar,GBP
+RO,LOC019,RO Airport Terminal 1,LOC019-U01,Food Hall,USD
+RO,LOC019,RO Airport Terminal 2,LOC019-U02,Express Kiosk,EUR
+GR,LOC020,GR Airport Terminal 1,LOC020-U01,Bakery,EUR
+GR,LOC020,GR Airport Terminal 2,LOC020-U02,Express Kiosk,GBP
+TR,LOC021,TR Airport Terminal 1,LOC021-U01,Food Hall,USD
+TR,LOC021,TR Airport Terminal 2,LOC021-U02,Express Kiosk,GBP
+AE,LOC022,AE Airport Terminal 1,LOC022-U01,Express Kiosk,USD
+AE,LOC022,AE Airport Terminal 2,LOC022-U02,Coffee Bar,USD
+QA,LOC023,QA Airport Terminal 1,LOC023-U01,Food Hall,GBP
+QA,LOC023,QA Airport Terminal 2,LOC023-U02,Bakery,USD
+SA,LOC024,SA Airport Terminal 1,LOC024-U01,Coffee Bar,USD
+SA,LOC024,SA Airport Terminal 2,LOC024-U02,Express Kiosk,EUR
+IN,LOC025,IN Airport Terminal 1,LOC025-U01,Food Hall,USD
+IN,LOC025,IN Airport Terminal 2,LOC025-U02,Express Kiosk,GBP
+SG,LOC026,SG Airport Terminal 1,LOC026-U01,Coffee Bar,USD
+SG,LOC026,SG Airport Terminal 2,LOC026-U02,Food Hall,EUR
+MY,LOC027,MY Airport Terminal 1,LOC027-U01,Bakery,GBP
+MY,LOC027,MY Airport Terminal 2,LOC027-U02,Coffee Bar,USD
+TH,LOC028,TH Airport Terminal 1,LOC028-U01,Bakery,EUR
+TH,LOC028,TH Airport Terminal 2,LOC028-U02,Bakery,USD
+AU,LOC029,AU Airport Terminal 1,LOC029-U01,Coffee Bar,USD
+AU,LOC029,AU Airport Terminal 2,LOC029-U02,Express Kiosk,GBP
+NZ,LOC030,NZ Airport Terminal 1,LOC030-U01,Express Kiosk,GBP
+NZ,LOC030,NZ Airport Terminal 2,LOC030-U02,Food Hall,GBP
+US,LOC031,US Airport Terminal 1,LOC031-U01,Coffee Bar,EUR
+US,LOC031,US Airport Terminal 2,LOC031-U02,Bakery,USD
+CA,LOC032,CA Airport Terminal 1,LOC032-U01,Express Kiosk,EUR
+CA,LOC032,CA Airport Terminal 2,LOC032-U02,Express Kiosk,USD
+BR,LOC033,BR Airport Terminal 1,LOC033-U01,Coffee Bar,USD
+BR,LOC033,BR Airport Terminal 2,LOC033-U02,Coffee Bar,GBP
+MX,LOC034,MX Airport Terminal 1,LOC034-U01,Food Hall,USD
+MX,LOC034,MX Airport Terminal 2,LOC034-U02,Coffee Bar,EUR
+ZA,LOC035,ZA Airport Terminal 1,LOC035-U01,Bakery,EUR
+ZA,LOC035,ZA Airport Terminal 2,LOC035-U02,Bakery,EUR
+EG,LOC036,EG Airport Terminal 1,LOC036-U01,Bakery,GBP
+EG,LOC036,EG Airport Terminal 2,LOC036-U02,Food Hall,GBP
+JP,LOC037,JP Airport Terminal 1,LOC037-U01,Food Hall,GBP
+JP,LOC037,JP Airport Terminal 2,LOC037-U02,Food Hall,EUR
+KR,LOC038,KR Airport Terminal 1,LOC038-U01,Food Hall,GBP
+KR,LOC038,KR Airport Terminal 2,LOC038-U02,Coffee Bar,GBP

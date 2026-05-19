@@ -1,0 +1,6 @@
+source_system,source_schema,source_table,target_entity,load_pattern,watermark_column,primary_key_columns,target_container,target_folder,file_format,run_group,is_active
+oracle_pos,POS,SALES_TRANSACTION_LINE,sales_line_items,incremental,LAST_UPDATE_TS,"BUSINESS_DATE,TRANSACTION_ID,TRANSACTION_LINE_ID",landing,sales_line_items,csv,six_daily,1
+oracle_pos,POS,PAYMENT_LINE,payment_lines,incremental,LAST_UPDATE_TS,"BUSINESS_DATE,TRANSACTION_ID,PAYMENT_LINE_ID",landing,payment_lines,csv,six_daily,1
+oracle_pos,POS,DISCOUNT_LINE,discount_lines,incremental,LAST_UPDATE_TS,"BUSINESS_DATE,TRANSACTION_ID,DISCOUNT_LINE_ID",landing,discount_lines,csv,six_daily,1
+oracle_pos,MASTERDATA,PRODUCT,products,full,,PRODUCT_ID,landing,products,csv,daily_reference,1
+oracle_pos,MASTERDATA,LOCATION,locations,full,,LOCATION_ID,landing,locations,csv,daily_reference,1

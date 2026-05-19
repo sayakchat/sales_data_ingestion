@@ -1,0 +1,48 @@
+# Databricks Declarative Automation Bundle configuration.
+# This file is intentionally at the repository root because Databricks expects one bundle
+# configuration file named databricks.yml at the project root.
+
+bundle:
+  name: sayak-global-retail-sales-lakehouse
+
+include:
+  - resources/*.yml
+
+variables:
+  catalog:
+    description: Unity Catalog catalog for portfolio deployment.
+    default: main
+  schema:
+    description: Unity Catalog schema/database for the sales lakehouse.
+    default: portfolio_retail_sales
+  landing_path:
+    description: ADLS/DBFS landing path where ADF places raw Oracle extracts.
+    default: /Volumes/main/portfolio_retail_sales/landing
+  checkpoint_path:
+    description: Checkpoint base path for streaming ingestion.
+    default: /Volumes/main/portfolio_retail_sales/checkpoints
+
+  new_unit_json_path:
+    description: ADLS path where new units share hosted JSON sales files.
+    default: /Volumes/main/portfolio_retail_sales/landing/new_units/json/sales_line_items
+  sharepoint_master_path:
+    description: ADLS path containing parquet output from metadata-driven SharePoint ingestion.
+    default: /Volumes/main/portfolio_retail_sales/landing/sharepoint_master
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://adb-0000000000000000.0.azuredatabricks.net
+    variables:
+      catalog: main
+      schema: portfolio_retail_sales_dev
+
+  prod:
+    mode: production
+    workspace:
+      host: https://adb-0000000000000000.0.azuredatabricks.net
+    variables:
+      catalog: prod
+      schema: retail_sales

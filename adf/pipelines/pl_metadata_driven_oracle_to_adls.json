@@ -1,0 +1,110 @@
+{
+  "name": "pl_metadata_driven_oracle_to_adls",
+  "properties": {
+    "description": "Metadata-driven ADF pipeline template. Lookup active control rows, iterate source objects, copy Oracle extracts through SHIR to ADLS landing, and update audit/watermark metadata.",
+    "parameters": {
+      "run_group": {
+        "type": "String",
+        "defaultValue": "six_daily"
+      },
+      "trigger_time_utc": {
+        "type": "String"
+      }
+    },
+    "activities": [
+      {
+        "name": "Lookup active ingestion metadata",
+        "type": "Lookup",
+        "typeProperties": {
+          "source": {
+            "type": "AzureSqlSource",
+            "sqlReaderQuery": "SELECT * FROM dbo.IngestionControl WHERE is_active = 1 AND run_group = '@{pipeline().parameters.run_group}'"
+          },
+          "dataset": {
+            "referenceName": "ds_metadata_sql_control",
+            "type": "DatasetReference"
+          },
+          "firstRowOnly": false
+        }
+      },
+      {
+        "name": "For each source object",
+        "type": "ForEach",
+        "dependsOn": [
+          {
+            "activity": "Lookup active ingestion metadata",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "typeProperties": {
+          "items": "@activity('Lookup active ingestion metadata').output.value",
+          "isSequential": false,
+          "batchCount": 8,
+          "activities": [
+            {
+              "name": "Copy Oracle table to ADLS landing",
+              "type": "Copy",
+              "typeProperties": {
+                "source": {
+                  "type": "OracleSource",
+                  "oracleReaderQuery": "@{concat('SELECT * FROM ', item().source_schema, '.', item().source_table, if(equals(item().load_pattern, 'incremental'), concat(' WHERE ', item().watermark_column, ' > TO_TIMESTAMP(''', item().last_watermark_value, ''', ''YYYY-MM-DD HH24:MI:SS'')'), ''))}"
+                },
+                "sink": {
+                  "type": "DelimitedTextSink",
+                  "storeSettings": {
+                    "type": "AzureBlobFSWriteSettings"
+                  }
+                },
+                "enableStaging": false
+              },
+              "inputs": [
+                {
+                  "referenceName": "ds_oracle_pos_parameterised",
+                  "type": "DatasetReference"
+                }
+              ],
+              "outputs": [
+                {
+                  "referenceName": "ds_adls_landing_parameterised",
+                  "type": "DatasetReference"
+                }
+              ]
+            },
+            {
+              "name": "Write ingestion audit",
+              "type": "SqlServerStoredProcedure",
+              "dependsOn": [
+                {
+                  "activity": "Copy Oracle table to ADLS landing",
+                  "dependencyConditions": [
+                    "Succeeded",
+                    "Failed"
+                  ]
+                }
+              ],
+              "typeProperties": {
+                "storedProcedureName": "dbo.usp_write_ingestion_audit",
+                "storedProcedureParameters": {
+                  "ingestion_id": {
+                    "value": "@item().ingestion_id",
+                    "type": "Int32"
+                  },
+                  "pipeline_run_id": {
+                    "value": "@pipeline().RunId",
+                    "type": "String"
+                  },
+                  "status": {
+                    "value": "@activity('Copy Oracle table to ADLS landing').Status",
+                    "type": "String"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

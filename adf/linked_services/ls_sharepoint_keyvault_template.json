@@ -1,0 +1,32 @@
+{
+  "name": "ls_sharepoint_with_keyvault_credentials",
+  "properties": {
+    "description": "Template showing how SharePoint app registration values are externalised in Azure Key Vault rather than hard-coded in ADF.",
+    "type": "RestService",
+    "typeProperties": {
+      "url": "@{linkedService().sharepointSiteUrl}",
+      "authenticationType": "ServicePrincipal",
+      "servicePrincipalId": {
+        "type": "AzureKeyVaultSecret",
+        "store": { "referenceName": "ls_keyvault", "type": "LinkedServiceReference" },
+        "secretName": "@{linkedService().appIdSecretName}"
+      },
+      "servicePrincipalKey": {
+        "type": "AzureKeyVaultSecret",
+        "store": { "referenceName": "ls_keyvault", "type": "LinkedServiceReference" },
+        "secretName": "@{linkedService().appSecretSecretName}"
+      },
+      "tenant": {
+        "type": "AzureKeyVaultSecret",
+        "store": { "referenceName": "ls_keyvault", "type": "LinkedServiceReference" },
+        "secretName": "@{linkedService().tenantIdSecretName}"
+      }
+    },
+    "parameters": {
+      "sharepointSiteUrl": { "type": "String" },
+      "appIdSecretName": { "type": "String" },
+      "appSecretSecretName": { "type": "String" },
+      "tenantIdSecretName": { "type": "String" }
+    }
+  }
+}

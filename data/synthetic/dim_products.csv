@@ -1,0 +1,11 @@
+product_id,product_name,product_category,standard_unit_price,is_priced_product,is_kitchen_instruction
+P001,Flat White,Hot Drinks,3.8,True,False
+P002,Americano,Hot Drinks,3.2,True,False
+P003,Chicken Sandwich,Food,6.5,True,False
+P004,Breakfast Combo,Combo,8.9,True,False
+P005,Vegan Wrap,Food,5.8,True,False
+P006,Bottled Water,Cold Drinks,2.4,True,False
+P007,Croissant,Bakery,2.95,True,False
+K001,Medium Rare,Kitchen Instruction,0.0,False,True
+K002,With Ice,Kitchen Instruction,0.0,False,True
+K003,Extra Hot,Kitchen Instruction,0.0,False,True

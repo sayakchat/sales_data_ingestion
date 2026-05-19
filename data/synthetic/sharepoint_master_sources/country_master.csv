@@ -1,0 +1,39 @@
+country_code,country_name,region
+GB,Country GB,Europe
+FR,Country FR,Middle East
+DE,Country DE,Europe
+ES,Country ES,Americas
+IT,Country IT,Africa
+NL,Country NL,Africa
+BE,Country BE,APAC
+CH,Country CH,APAC
+AT,Country AT,Africa
+SE,Country SE,Africa
+NO,Country NO,Europe
+DK,Country DK,Africa
+FI,Country FI,Europe
+IE,Country IE,Americas
+PT,Country PT,Americas
+PL,Country PL,APAC
+CZ,Country CZ,Americas
+HU,Country HU,Africa
+RO,Country RO,Americas
+GR,Country GR,Africa
+TR,Country TR,Europe
+AE,Country AE,APAC
+QA,Country QA,APAC
+SA,Country SA,Americas
+IN,Country IN,Africa
+SG,Country SG,APAC
+MY,Country MY,Africa
+TH,Country TH,Americas
+AU,Country AU,Middle East
+NZ,Country NZ,Americas
+US,Country US,APAC
+CA,Country CA,Middle East
+BR,Country BR,Europe
+MX,Country MX,Africa
+ZA,Country ZA,APAC
+EG,Country EG,APAC
+JP,Country JP,Africa
+KR,Country KR,Europe

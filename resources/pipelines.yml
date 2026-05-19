@@ -1,0 +1,37 @@
+# Databricks resources managed as code.
+# The pipeline demonstrates how a Lead Data Engineer would package a production lakehouse
+# instead of relying on manually-created notebooks.
+
+resources:
+  pipelines:
+    global_retail_sales_lakehouse_pipeline:
+      name: ${bundle.target}-global-retail-sales-lakehouse
+      catalog: ${var.catalog}
+      schema: ${var.schema}
+      serverless: true
+      development: true
+      continuous: false
+      channel: CURRENT
+      libraries:
+        - file:
+            path: ../src/dlt/pipeline_global_sales_lakehouse.py
+      configuration:
+        landing_path: ${var.landing_path}
+        new_unit_json_path: ${var.new_unit_json_path}
+        sharepoint_master_path: ${var.sharepoint_master_path}
+        checkpoint_path: ${var.checkpoint_path}
+        pipeline.owner: sayak-chattopadhyay
+        pipeline.domain: travel-retail-sales
+
+  jobs:
+    retail_sales_lakehouse_job:
+      name: ${bundle.target}-retail-sales-lakehouse-job
+      tasks:
+        - task_key: run_lakehouse_pipeline
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.global_retail_sales_lakehouse_pipeline.id}
+      schedule:
+        # Six daily runs mirrors the business requirement shared in the project brief.
+        quartz_cron_expression: 0 0 2,6,10,14,18,22 * * ?
+        timezone_id: Europe/London
+        pause_status: PAUSED
