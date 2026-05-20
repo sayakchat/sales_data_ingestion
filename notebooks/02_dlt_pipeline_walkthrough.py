@@ -16,4 +16,4 @@
 # MAGIC %md
 # MAGIC ## Why the pipeline is not notebook-only
 # MAGIC
-# MAGIC A Lead Data Engineer should be able to package pipelines as source files, validate them in CI/CD, deploy them through a bundle, and promote them across environments. Notebooks are useful for exploration, but the production implementation should be managed as code.
+# MAGIC Task - Package pipelines as source files, validate them in CI/CD, deploy them through a bundle, and promote them across environments. Notebooks are useful for exploration, but the production implementation should be managed as code.
