@@ -7,7 +7,7 @@ Grain: one transaction line per business date, transaction and line id.
 Business key:
 
 ```text
-business_date + transaction_id + transaction_line_id (  optional + unit_cost_centre_code )
+business_date + transaction_id + transaction_line_id + unit_cost_centre_code ( optional )
 ```
 
 Important measures:
