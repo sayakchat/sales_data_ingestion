@@ -3,9 +3,9 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "lead-data-engineer-retail-lakehouse"
+name = "retail-sales-lakehouse"
 version = "0.1.0"
-description = "Portfolio project for a lead data engineer: metadata-driven retail sales lakehouse on Azure Databricks."
+description = "Portfolio project: metadata-driven retail sales lakehouse on Azure Databricks."
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [{ name = "Sayak Chattopadhyay" }]
