@@ -1,14 +1,13 @@
-# Lead Data Engineer Portfolio Project: Global Travel Retail Sales Lakehouse
+# Project : Global Travel Retail Sales Lakehouse
 
-> **Candidate positioning:** Lead Data Engineer / Data Architect / Solution Architect  
 > **Portfolio owner:** Sayak Chattopadhyay  
 > **LinkedIn:** https://www.linkedin.com/in/sayakc44/  
 > **Domain:** Travel retail, food & beverage, sales, inventory, energy analytics  
 > **Cloud stack:** Azure Data Factory, Self-hosted Integration Runtime, ADLS Gen2, Databricks, Delta Lake, Delta Live Tables / Lakeflow Declarative Pipelines, Databricks Asset Bundles, Unity Catalog
 
-This repository is a GitHub-ready portfolio project based on an anonymised, enterprise-scale retail sales data platform pattern. It is designed to show the depth expected from a **Lead Data Engineer**: platform architecture, metadata-driven ingestion, streaming + batch processing, medallion architecture, quality controls, deduplication of reposted sales data, analytics-ready gold models, and deployment automation.
+This repository is a GitHub-ready portfolio project based on an anonymised, enterprise-scale retail sales data platform pattern. It is designed to show the platform architecture, metadata-driven ingestion, streaming + batch processing, medallion architecture, quality controls, deduplication of reposted sales data, analytics-ready gold models, and deployment automation.
 
-The project is intentionally written as if it were a real implementation handover: code comments, design decisions, deployment notes, data contracts, and business use cases are included so hiring managers can inspect both technical depth and architectural thinking.
+The project is intentionally written as if it were a real implementation handover: code comments, design decisions, deployment notes, data contracts, and business use cases are included so visitors can inspect both technical depth and architectural thinking.
 
 ---
 
@@ -29,7 +28,7 @@ The project is intentionally written as if it were a real implementation handove
 
 ## 2. Business scenario
 
-A global travel-retail business needs to ingest sales data from an on-prem Oracle point-of-sale estate across **38 countries**. The pipeline runs **6 times per day** and processes high-volume transaction details across product, payment, discount, unit, location, and country dimensions.
+A global travel-retail business needs to ingest sales data from an on-prem Oracle point-of-sale estate across **X countries**. The pipeline runs **6 times per day** to cater to globally distributed user demands and processes high-volume transaction details across product, payment, discount, unit, location, and country dimensions.
 
 The platform must support:
 
@@ -203,9 +202,9 @@ Gold contains materialized views for aggregated data products such as discount s
 
 ---
 
-## 8. Hiring-manager talking points
+## 8. Ask me for more details.
 
-Use this project in interviews to discuss:
+Further common discussion points:
 
 - How you designed metadata-driven ingestion instead of building one-off pipelines per table.
 - Why reposted sales data breaks simple incremental loads.
@@ -216,11 +215,6 @@ Use this project in interviews to discuss:
 
 ---
 
-## 9. Portfolio expansion plan
 
-This is **Project 1**. Suggested next two projects:
-
-1. **Energy + IoT Streaming Lakehouse:** streaming energy meter data, anomaly detection, cost allocation, and unit-level sustainability analytics.
-2. **Inventory & Replenishment Data Product:** inventory snapshots, sales velocity, waste reduction, stockout risk, and demand forecasting features.
 
 See [`docs/portfolio_roadmap.md`](docs/portfolio_roadmap.md) for a more detailed plan.
