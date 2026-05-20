@@ -4,7 +4,7 @@
 
 | Rule | Action | Reason |
 |---|---|---|
-| transaction_id is not null | flag / expectation | Required for dedupe and reconciliation |
+| transaction_id  (guestcheckid) is not null | flag / expectation | Required for dedupe and reconciliation |
 | business_date is not null | flag / expectation | Required for partitioning and daily reporting |
 | completed gross sales is non-negative | flag | Negative completed sales usually indicate a status issue |
 
@@ -24,3 +24,4 @@
 - Compare Bronze-to-Silver dropped/overwritten rows by business date.
 - Compare Gold total net sales to Silver total net sales by country and business date.
 - Alert when a country is missing from a scheduled six-daily run.
+- Alert when a DQ Check Fail using a ref_notification table with technical owner and functional owner
