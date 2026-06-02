@@ -43,9 +43,6 @@ Gold contains curated facts and aggregates:
 
 The analytics layer is denormalised enough for BI performance while preserving transaction-level drill-through. This is useful in executive reporting where numbers are frequently challenged by country or unit leaders.
 
-## Why this distinguishes a Lead Data Engineer
-
-A junior portfolio often shows simple file ingestion. This project shows the problems that happen in real enterprise platforms: reposts, late-arriving corrections, cancelled/returned lines, global metadata-driven ingestion, cost-aware analytics, and source-controlled deployments.
 
 
 ## Added ingestion patterns
